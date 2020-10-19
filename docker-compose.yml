@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:3.6.1
+    container_name: uv-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+    ports:
+        - 27017:27017
+    command: mongod
+volumes:
+  mongodb:
+  mongodb_config:
